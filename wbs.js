@@ -58,6 +58,8 @@ async function OpenPage() {
         return data6.innerText
     })
 
+    //Solicitud al sistema para recoleción de fechas
+
     const fecha1 = await openpage.evaluate(() => {
         const data1 = document.querySelector("#ctl00_ContentPlaceHolder1_ReadingHistoryGrid > tbody > tr:nth-child(2) > td:nth-child(1)")
         return data1.innerText
@@ -89,21 +91,19 @@ async function OpenPage() {
     })
     await new Promise(resolve => setTimeout(resolve, 2000))
 
-    //impresión de resultado de in3
-    console.log(resultado1)
-    console.log(resultado2)
-    console.log(resultado3)
-    console.log(resultado4)
-    console.log(resultado5)
-    console.log(resultado6)
-
-    //impresión de resultado de fechas
+    //impresión de resultado de in3 y fechas
     console.log(fecha1)
+    console.log(resultado1)
     console.log(fecha2)
+    console.log(resultado2)
     console.log(fecha3)
+    console.log(resultado3)
     console.log(fecha4)
+    console.log(resultado4)
     console.log(fecha5)
+    console.log(resultado5)
     console.log(fecha6)
+    console.log(resultado6)
 
     await browser.close()
 }
