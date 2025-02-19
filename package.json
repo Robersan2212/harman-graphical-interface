@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Robersan2212/harman-graphical-interface/issues"
   },
-  "homepage": "https://github.com/Robersan2212/harman-graphical-interface#readme"
+  "homepage": "https://github.com/Robersan2212/harman-graphical-interface#readme",
+  "dependencies": {
+    "puppeteer": "^24.2.1"
+  }
 }

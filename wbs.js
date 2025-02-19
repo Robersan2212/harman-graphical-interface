@@ -4,6 +4,9 @@ const pageURL = "https://bulkexpress.linde.com/Home/login.aspx"
 const user = "miguel.carrizo@harman.com"
 const pswd = "Harman.2024"
 
+const kg = 160
+const M3 = 0.8414
+
 async function OpenPage() {
     const browser = await puppeteer.launch({
         headless: false,
@@ -23,7 +26,7 @@ async function OpenPage() {
     await openpage.click('a[id=btnlogin]')
     await openpage.click('span[id=ctl00_TopNavigationPanelInventoryManager1_lblInventory]')
     await openpage.click('span[id=ctl00_ContentPlaceHolder1_BtnHistory]')
-    await openpage.click('a[id=ctl00_ContentPlaceHolder1_DeliveryHistoryGrid_ctl03_LinkBtnPraxairNo]')
+    await openpage.click('a[id=ctl00_ContentPlaceHolder1_DeliveryHistoryGrid_ctl04_LinkBtnPraxairNo]')
     await new Promise(resolve => setTimeout(resolve, 5000))
 
     //solicitud al sistema para recoleción de datos 
@@ -92,20 +95,16 @@ async function OpenPage() {
     await new Promise(resolve => setTimeout(resolve, 2000))
 
     //impresión de resultado de in3 y fechas
-    console.log(fecha1)
-    console.log(resultado1)
-    console.log(fecha2)
-    console.log(resultado2)
-    console.log(fecha3)
-    console.log(resultado3)
-    console.log(fecha4)
-    console.log(resultado4)
-    console.log(fecha5)
-    console.log(resultado5)
-    console.log(fecha6)
-    console.log(resultado6)
+
+    console.log("PLANTA 1")
+
+    console.log(fecha1,  resultado1*kg*M3, "m3")
+    console.log(fecha2,  resultado2*kg*M3, "m3")
+    console.log(fecha3,  resultado3*kg*M3, "m3")
+    console.log(fecha4,  resultado4*kg*M3, "m3")
+    console.log(fecha5,  resultado5*kg*M3, "m3")
+    console.log(fecha6,  resultado6*kg*M3, "m3")
 
     await browser.close()
 }
-// que show
 OpenPage()
