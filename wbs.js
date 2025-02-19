@@ -58,15 +58,52 @@ async function OpenPage() {
         return data6.innerText
     })
 
+    const fecha1 = await openpage.evaluate(() => {
+        const data1 = document.querySelector("#ctl00_ContentPlaceHolder1_ReadingHistoryGrid > tbody > tr:nth-child(2) > td:nth-child(1)")
+        return data1.innerText
+    })
+
+    const fecha2 = await openpage.evaluate(() => {
+        const data2 = document.querySelector("#ctl00_ContentPlaceHolder1_ReadingHistoryGrid > tbody > tr:nth-child(3) > td:nth-child(1)")
+        return data2.innerText
+    })
+
+    const fecha3 = await openpage.evaluate(() => {
+        const data3 = document.querySelector("#ctl00_ContentPlaceHolder1_ReadingHistoryGrid > tbody > tr:nth-child(4) > td:nth-child(1)")
+        return data3.innerText
+    })
+
+    const fecha4 = await openpage.evaluate(() => {
+        const data4 = document.querySelector("#ctl00_ContentPlaceHolder1_ReadingHistoryGrid > tbody > tr:nth-child(5) > td:nth-child(1)")
+        return data4.innerText
+    })
+
+    const fecha5 = await openpage.evaluate(() => {
+        const data5 = document.querySelector("#ctl00_ContentPlaceHolder1_ReadingHistoryGrid > tbody > tr:nth-child(6) > td:nth-child(1)")
+        return data5.innerText
+    })
+
+    const fecha6 = await openpage.evaluate(() => {
+        const data6 = document.querySelector("#ctl00_ContentPlaceHolder1_ReadingHistoryGrid > tbody > tr:nth-child(7) > td:nth-child(1)")
+        return data6.innerText
+    })
     await new Promise(resolve => setTimeout(resolve, 2000))
 
-    //impresión de resultado 
+    //impresión de resultado de in3
     console.log(resultado1)
     console.log(resultado2)
     console.log(resultado3)
     console.log(resultado4)
     console.log(resultado5)
     console.log(resultado6)
+
+    //impresión de resultado de fechas
+    console.log(fecha1)
+    console.log(fecha2)
+    console.log(fecha3)
+    console.log(fecha4)
+    console.log(fecha5)
+    console.log(fecha6)
 
     await browser.close()
 }
