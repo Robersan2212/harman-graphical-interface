@@ -2,6 +2,8 @@ import snap7
 from snap7.util import *
 import time
 
+# Linea 26
+
 
 plc = snap7.client.Client()
 plc.connect('10.31.35.30',0,1)
