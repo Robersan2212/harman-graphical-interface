@@ -4,9 +4,8 @@ import time
 
 # Linea 26
 
-
 plc = snap7.client.Client()
-plc.connect('10.31.35.30',0,1)
+plc.connect('10.31.35.104',0,1)
 
 if plc == None:
     print('PLC Connection Failed')
@@ -24,11 +23,11 @@ else :
 
         flow1= plc.mb_read(54,4)
         flow1 = get_real(flow1,0)
-        print(flow1)
+        print(flow1, "l/min")
 
         ppms1= plc.mb_read(64,4)
         ppms1 = get_real(ppms1,0)
-        print (ppms1)
+        print (ppms1, "ppms")
 
         
 

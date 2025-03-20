@@ -9,8 +9,8 @@ const M3 = 0.8414
 
 async function OpenPage() {
     const browser = await puppeteer.launch({
-        headless: false,
-        slowMo: 50,
+        headless: true,
+        slowMo: 30,
     })
     const openpage = await browser.newPage()
 
@@ -26,7 +26,7 @@ async function OpenPage() {
     await openpage.click('a[id=btnlogin]')
     await openpage.click('span[id=ctl00_TopNavigationPanelInventoryManager1_lblInventory]')
     await openpage.click('span[id=ctl00_ContentPlaceHolder1_BtnHistory]')
-    await openpage.click('a[id=ctl00_ContentPlaceHolder1_DeliveryHistoryGrid_ctl03_LinkBtnPraxairNo]')
+    await openpage.click('a[id=ctl00_ContentPlaceHolder1_DeliveryHistoryGrid_ctl04_LinkBtnPraxairNo]')
     await new Promise(resolve => setTimeout(resolve, 5000))
 
     //solicitud al sistema para recoleción de in3 
