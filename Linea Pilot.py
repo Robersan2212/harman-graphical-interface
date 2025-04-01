@@ -5,7 +5,7 @@ import time
 # Linea 26
 
 plc = snap7.client.Client()
-plc.connect('10.31.35.174',0,1)
+plc.connect('10.31.35.175',0,1)
 
 if plc == None:
     print('PLC Connection Failed')

@@ -16,19 +16,21 @@ else :
     print('PLC Connected')
     lstatus = "Connected"
 
-    while True:
-        time.sleep(0.5)
-        
-        print(lstatus)
+    try:
+        while True:
+            time.sleep(0.5)
+            
+            print(lstatus)
 
-        flow1= plc.mb_read(54,4)
-        flow1 = get_real(flow1,0)
-        print(flow1, "l/min")
+            flow1= plc.mb_read(54,4)
+            flow1 = get_real(flow1,0)
+            print(flow1, "l/min")
 
-        ppms1= plc.mb_read(64,4)
-        ppms1 = get_real(ppms1,0)
-        print (ppms1, "ppms")
-
-        
-
+            ppms1= plc.mb_read(64,4)
+            ppms1 = get_real(ppms1,0)
+            print (ppms1, "ppms")
+    except:
+        print('Error')
+        plc.disconnect()
+        exit()
 
