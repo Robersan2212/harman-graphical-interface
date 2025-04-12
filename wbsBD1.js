@@ -1,6 +1,6 @@
 import puppeteer from "puppeteer";
 
-const pageURL = "https://bulkexpress.linde.com/Home/login.aspx"
+const pageURL = "https://bulkexpress.linde.com/Home/login.aspx";
 const user = "miguel.carrizo@harman.com"
 const pswd = "Harman.2024"
 
@@ -9,8 +9,8 @@ const M3 = 0.8414
 
 async function OpenPage() {
     const browser = await puppeteer.launch({
-        headless: true,
-        slowMo: 30,
+        headless: false,
+        slowMo: 40,
     })
     const openpage = await browser.newPage()
 
@@ -26,7 +26,17 @@ async function OpenPage() {
     await openpage.click('a[id=btnlogin]')
     await openpage.click('span[id=ctl00_TopNavigationPanelInventoryManager1_lblInventory]')
     await openpage.click('span[id=ctl00_ContentPlaceHolder1_BtnHistory]')
-    await openpage.click('a[id=ctl00_ContentPlaceHolder1_DeliveryHistoryGrid_ctl03_LinkBtnPraxairNo]')
+
+    await openpage.evaluate (() => {
+        const button = Array.from(document.querySelectorAll('a'));
+        const targetbutton = button.find(button => button.innerText.includes('6010942'));
+        if (targetbutton) {
+            targetbutton.click();
+        }else {
+            console.log("Button not found");
+        }
+    }) 
+   
     await new Promise(resolve => setTimeout(resolve, 5000))
 
     //solicitud al sistema para recoleción de in3 
@@ -118,7 +128,6 @@ async function OpenPage() {
 
     const Promedio = (C65+C54+C43+C32+C21)/5
 
-    console.log(new Date())
 
     console.log(fecha1, r1, "in H2O")
     console.log(fecha2, r2, "in H2O")
@@ -128,10 +137,8 @@ async function OpenPage() {
     console.log(fecha6, r6, "in H2O")
 
     console.log("promedio de consumo: ",Promedio)
-    
-
-
 
     await browser.close()
+
 }
 OpenPage()

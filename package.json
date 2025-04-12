@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Robersan2212/harman-graphical-interface#readme",
   "dependencies": {
+    "luxon": "^3.6.1",
     "puppeteer": "^24.2.1"
   }
 }

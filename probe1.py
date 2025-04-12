@@ -5,8 +5,9 @@ import time
 import snap7
 from snap7.util import *
 
-IP = '10.31.35.15'
+IP = '10.31.35.6'
 RACK = 0
+
 SLOT = 1
 
 Vflow = 54
@@ -34,6 +35,10 @@ while True:
                     ppms1= plc.mb_read(64,4)
                     ppms1 = get_real(ppms1,0)
                     print (ppms1, "ppms")
+                
+                    percentV1= plc.mb_read(76,4)
+                    percentV1 = get_real(percentV1,0)
+                    print (percentV1, "%")
 
                 case "S7CpuStatusStop":
                     print ("STOP")
