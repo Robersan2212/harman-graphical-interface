@@ -136,7 +136,7 @@ async function OpenPage() {
     console.log(fecha5, r5, "in H2O")
     console.log(fecha6, r6, "in H2O")
 
-    console.log("promedio de consumo: ",Promedio)
+    console.log("promedio de consumo de 5h: ",Promedio)
 
     await browser.close()
 
