@@ -5,7 +5,7 @@ import time
 import snap7
 from snap7.util import *
 
-IP = '10.31.35.6'
+IP = '10.31.35.100'
 RACK = 0
 
 SLOT = 1
